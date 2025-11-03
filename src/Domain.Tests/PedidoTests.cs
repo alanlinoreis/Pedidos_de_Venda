@@ -52,5 +52,19 @@ namespace Domain.Entities.Tests
             Assert.Contains("Recibo", recibo);
             Assert.Contains("110", recibo); // 100 + 20 - 10
         }
+
+        [Fact]
+        public void LSP_DevePermitirSubstituicaoEntreTiposDerivados()
+        {
+            // Pedido Nacional
+            Pedido pedido = new PedidoNacional(frete: v => v + 10, promocao: v => v * 0.95m);
+            var reciboNacional = pedido.Processar();
+            Assert.Contains("NF-e", reciboNacional);
+
+            // Pedido Internacional
+            pedido = new PedidoInternacional(frete: v => v + 20, promocao: v => v * 0.9m);
+            var reciboInternacional = pedido.Processar();
+            Assert.Contains("Commercial Invoice", reciboInternacional);
+        }
     }
 }
