@@ -1,2 +1,7 @@
-# Pedidos_de_Venda
-Criação de um exemplo de pedidos de venda
+# 🧾 Pedidos de Venda
+
+Projeto desenvolvido por **Alan Lino dos Reis** para a disciplina de **Programação Orientada a Objetos (UTFPR Medianeira)**.  
+Para executar, utilize os comandos:  
+```bash
+dotnet restore
+dotnet run
